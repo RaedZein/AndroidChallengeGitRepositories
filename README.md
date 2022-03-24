@@ -1,1 +1,1 @@
-# AndroidChallengeGitRepositories
+# Android Challenge - Git Repositories

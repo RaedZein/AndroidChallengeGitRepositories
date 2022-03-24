@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Git Repos - Raed</string>
+
+    <!-- Listing strings-->
+    <string name="listing_title">Top Repositories</string>
+    <string name="listing_button_retry">Retry</string>
+
+    <!-- Details strings-->
+    <string name="details_text_description">Description:</string>
+
+</resources>
