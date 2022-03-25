@@ -26,11 +26,7 @@ class RepositoriesMediator(
       LoadType.PREPEND ->
         return MediatorResult.Success(endOfPaginationReached = false)
 
-      LoadType.APPEND -> {
-        state.lastItemOrNull() ?:
-        return MediatorResult.Success(endOfPaginationReached = true)
-        currentPage.plus(1)
-      }
+      LoadType.APPEND -> currentPage.plus(1)
     }
 
     return when (val result = repository.getMostStarredReposFromApi(queryBuilder.build(currentPage))) {
