@@ -81,7 +81,7 @@ class ListFragment : ViewBindingFragment<FragmentListBinding>() {
         repoDetailsViewModel.setGithubRepoDetails(repo)
         findNavController().navigate(
             ListFragmentDirections
-                .actionListingFragmentToDetailsFragment())
+                .actionListingFragmentToDetailsFragment(repo.id))
     }
 
     private fun showMessageDialog(

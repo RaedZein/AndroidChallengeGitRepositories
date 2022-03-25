@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.raedzein.assignment.domain.model.FavouritedRepo
 import com.raedzein.assignment.domain.model.GithubRepo
 
 /**
@@ -11,10 +12,11 @@ import com.raedzein.assignment.domain.model.GithubRepo
  * @author Raed Zein
  * created on Thursday, 24 March, 2022
  */
-@Database(entities = [GithubRepo::class], version = 1)
+@Database(entities = [GithubRepo::class, FavouritedRepo::class], version = 1)
 abstract class ApplicationDatabase : RoomDatabase() {
 
     abstract fun githubRepo(): GithubRepoDao
+    abstract fun favouritedRepo(): FavouritedRepoDao
 
     companion object {
 

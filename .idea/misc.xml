@@ -9,6 +9,7 @@
         <entry key="app/src/main/res/drawable/ic_star_white.xml" value="0.32592592592592595" />
         <entry key="app/src/main/res/layout/fragment_list.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/fragment_place_details.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_repo_details.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/item_list_repository.xml" value="0.335" />
         <entry key="app/src/main/res/layout/list_item_place.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/view_custom_search_bar.xml" value="0.21979166666666666" />

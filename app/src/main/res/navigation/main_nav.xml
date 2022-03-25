@@ -23,6 +23,12 @@
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.raedzein.assignment.ui.details.RepoDetailsFragment"
-        tools:layout="@layout/fragment_repo_details"/>
+        tools:layout="@layout/fragment_repo_details">
+
+        <argument
+            android:name="repoId"
+            app:argType="long" />
+
+    </fragment>
 
 </navigation>

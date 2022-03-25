@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "dddbdbebeab42f0fe4acb51d85803e5b",
+    "identityHash": "8d31de3805d7f49a859639aba196218d",
     "entities": [
       {
         "tableName": "GithubRepo",
@@ -65,12 +65,32 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "FavouritedRepo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`githubRepoId` INTEGER NOT NULL, PRIMARY KEY(`githubRepoId`))",
+        "fields": [
+          {
+            "fieldPath": "githubRepoId",
+            "columnName": "githubRepoId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "githubRepoId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'dddbdbebeab42f0fe4acb51d85803e5b')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8d31de3805d7f49a859639aba196218d')"
     ]
   }
 }

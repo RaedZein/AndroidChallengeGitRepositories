@@ -1,16 +1,18 @@
 package com.raedzein.assignment.ui.details
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import com.raedzein.assignment.domain.model.FavouritedRepo
 import com.raedzein.assignment.domain.model.GithubRepo
+import com.raedzein.assignment.domain.repositories.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
 @HiltViewModel
 class RepoDetailsViewModel
-@Inject constructor(): ViewModel() {
+@Inject constructor(private val repository: Repository): ViewModel() {
 
 
     private val _githubReposLiveData = MutableLiveData<GithubRepo>()
@@ -18,6 +20,23 @@ class RepoDetailsViewModel
 
     fun setGithubRepoDetails(repo: GithubRepo) {
         _githubReposLiveData.value = repo
+
+        //Set the favourite liveData
+        favouritedLiveData =
+            repository.getFavouritedRepoLiveData(repoId = repo.id).transformToBooleanLiveData()
+    }
+
+    private fun LiveData<FavouritedRepo?>.transformToBooleanLiveData() =
+        Transformations.map(this) { it != null }
+
+
+    lateinit var favouritedLiveData: LiveData<Boolean>
+        private set
+
+    fun setFavourite(repoId: Long, favourite: Boolean) {
+        viewModelScope.launch(Dispatchers.Main) {
+            repository.setFavouritedRepo(repoId,favourite)
+        }
     }
 
 }
