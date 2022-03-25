@@ -3,6 +3,8 @@ package com.raedzein.assignment.ui.list.adapters
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -56,6 +58,8 @@ class RepoListAdapter(private val openRepo: (GithubRepo) -> Unit) :
                 binding.textViewDescription.text = item.description
 
                 binding.textViewStarsCount.text = item.starsCount.toString()
+
+                binding.imageViewFavourited.isInvisible = item.favourited.not()
 
                 Glide.with(itemView.context)
                     .load(item.owner.avatarUrl)

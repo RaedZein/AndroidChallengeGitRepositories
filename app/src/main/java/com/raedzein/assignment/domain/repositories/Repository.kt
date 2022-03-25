@@ -15,8 +15,11 @@ interface Repository {
     fun getReposFromDb(): PagingSource<Int, GithubRepo>
     suspend fun clearAllReposFromDb()
     suspend fun saveRepositoriesToDb(repos: List<GithubRepo>)
+    suspend fun updateRepo(repo: GithubRepo)
 
     fun getFavouritedRepoLiveData(repoId: Long): LiveData<FavouritedRepo?>
+    suspend fun getFavouritedRepos(): List<FavouritedRepo>
+    suspend fun getFavouritedRepo(repoId: Long): FavouritedRepo?
     suspend fun setFavouritedRepo(repoId: Long, favourite: Boolean)
 
 }

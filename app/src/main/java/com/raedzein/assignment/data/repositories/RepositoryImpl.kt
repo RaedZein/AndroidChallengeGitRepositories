@@ -19,12 +19,17 @@ class RepositoryImpl @Inject constructor(private val service: GitReposService,
     override suspend fun clearAllReposFromDb() = database.githubRepo().deleteAll()
 
     override suspend fun saveRepositoriesToDb(repos: List<GithubRepo>) = database.githubRepo().insert(repos)
+    override suspend fun updateRepo(repo: GithubRepo) = database.githubRepo().insert(repo)
+
     override fun getFavouritedRepoLiveData(repoId: Long) = database.favouritedRepo().getLiveData(repoId)
+    override suspend fun getFavouritedRepos() = database.favouritedRepo().getAll()
+
+    override suspend fun getFavouritedRepo(repoId: Long) = database.favouritedRepo().get(repoId)
 
     override suspend fun setFavouritedRepo(repoId: Long, favourite: Boolean) {
         if(favourite)
             database.favouritedRepo().insert(FavouritedRepo(repoId))
-        else if(database.favouritedRepo().get(repoId) != null)
+        else if(getFavouritedRepo(repoId) != null)
             database.favouritedRepo().delete(repoId)
     }
 }

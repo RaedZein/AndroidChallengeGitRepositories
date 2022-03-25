@@ -27,7 +27,8 @@ data class GithubRepo(
     @field:Json(name = "description") val description: String? = null,
     @field:Json(name = "stargazers_count") val starsCount: Int? = null,
     @field:Json(name = "forks_count") val forks: Int = 0,
-    @Embedded @field:Json(name = "owner") val owner: RepoOwner = RepoOwner()
+    @Embedded @field:Json(name = "owner") val owner: RepoOwner = RepoOwner(),
+    var favourited: Boolean = false
 )
 
 @JsonClass(generateAdapter = true)

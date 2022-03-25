@@ -4,6 +4,7 @@ import androidx.lifecycle.*
 import androidx.paging.*
 import com.raedzein.assignment.data.RepositoriesMediator
 import com.raedzein.assignment.data.api.MostStarredReposQueryBuilder
+import com.raedzein.assignment.domain.model.GithubRepo
 import com.raedzein.assignment.domain.repositories.Repository
 import com.raedzein.assignment.utils.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,8 +27,6 @@ class ReposListingViewModel
     ) {
         repository.getReposFromDb()
     }.flow.cachedIn(viewModelScope)
-        .asLiveData()
-
-
+            .asLiveData()
 
 }

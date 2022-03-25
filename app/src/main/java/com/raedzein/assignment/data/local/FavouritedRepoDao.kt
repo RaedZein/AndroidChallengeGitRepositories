@@ -20,6 +20,9 @@ interface FavouritedRepoDao {
     @Query("SELECT * FROM FavouritedRepo where githubRepoId = :id")
     suspend fun get(id: Long): FavouritedRepo?
 
+    @Query("SELECT * FROM FavouritedRepo")
+    suspend fun getAll(): List<FavouritedRepo>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(repo: FavouritedRepo)
 

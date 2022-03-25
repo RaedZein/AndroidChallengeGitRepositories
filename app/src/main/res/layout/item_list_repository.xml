@@ -33,15 +33,32 @@
             app:layout_constraintDimensionRatio="2:3"
             tools:ignore="ContentDescription" />
 
+        <ImageView
+            android:id="@+id/imageViewFavourited"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="0.5dp"
+            android:src="@drawable/ic_favorite"
+            android:layout_margin="@dimen/repo_margin_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.08"
+            tools:ignore="ContentDescription" />
+
         <TextView
             android:id="@+id/textViewName"
             style="@style/TitleTextStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/repo_margin_start_horizontal"
             android:layout_marginHorizontal="@dimen/repo_margin_start_horizontal"
+            android:layout_marginTop="@dimen/repo_margin_start_horizontal"
             android:minHeight="@dimen/repo_margin_vertical"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewFavourited"
             app:layout_constraintStart_toEndOf="@+id/imageViewOwner"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Repo Name" />

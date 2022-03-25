@@ -26,8 +26,7 @@ class RepoDetailsViewModel
             repository.getFavouritedRepoLiveData(repoId = repo.id).transformToBooleanLiveData()
     }
 
-    private fun LiveData<FavouritedRepo?>.transformToBooleanLiveData() =
-        Transformations.map(this) { it != null }
+    private fun LiveData<FavouritedRepo?>.transformToBooleanLiveData() = map { it != null }
 
 
     lateinit var favouritedLiveData: LiveData<Boolean>
@@ -36,6 +35,12 @@ class RepoDetailsViewModel
     fun setFavourite(repoId: Long, favourite: Boolean) {
         viewModelScope.launch(Dispatchers.Main) {
             repository.setFavouritedRepo(repoId,favourite)
+            val repo = _githubReposLiveData.value
+
+            repo?.let {
+                it.favourited = favourite
+                repository.updateRepo(repo)
+            }
         }
     }
 

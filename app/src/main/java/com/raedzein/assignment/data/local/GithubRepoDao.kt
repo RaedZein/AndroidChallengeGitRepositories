@@ -24,7 +24,7 @@ interface GithubRepoDao {
     suspend fun insert(repos: List<GithubRepo>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(repos: GithubRepo)
+    suspend fun insert(repos: GithubRepo)
 
     @Query("DELETE FROM GithubRepo")
     suspend fun deleteAll()

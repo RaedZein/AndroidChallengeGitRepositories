@@ -38,10 +38,14 @@ class RepositoriesMediator(
 
         val repos = result.data
         val endOfPaginationReached = repos.isEmpty()
+
         //Incase you need to clear the repos
 //        if (loadType == LoadType.REFRESH)
 //          repository.clearAllReposFromDb()
 
+        repos.forEach {
+          it.favourited = repository.getFavouritedRepo(it.id) != null
+        }
         repository.saveRepositoriesToDb(repos)
         MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)
       }

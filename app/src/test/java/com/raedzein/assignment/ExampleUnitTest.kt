@@ -1,4 +1,4 @@
-package com.raedzein.android.assignment
+package com.raedzein.assignment
 
 import org.junit.Test
 
