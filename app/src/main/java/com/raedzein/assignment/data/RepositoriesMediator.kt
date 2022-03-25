@@ -38,8 +38,9 @@ class RepositoriesMediator(
 
         val repos = result.data
         val endOfPaginationReached = repos.isEmpty()
-        if (loadType == LoadType.REFRESH)
-          repository.clearAllReposFromDb()
+        //Incase you need to clear the repos
+//        if (loadType == LoadType.REFRESH)
+//          repository.clearAllReposFromDb()
 
         repository.saveRepositoriesToDb(repos)
         MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)
